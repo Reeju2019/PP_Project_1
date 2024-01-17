@@ -1,0 +1,29 @@
+#PBS -N reeju2023_pp_Project_2
+#PBS -l walltime=0:20:00
+#PBS -l select=1:ncpus=12:mem=1gb:scratch_local=10gb:cluster=tyra
+#PBS -j oe
+
+cat $PBS_NODEFILE
+echo "Hostname " `hostname`
+echo "PBS_NODEFILE $PBS_NODEFILE"
+SOURCE=/storage/praha1/home/reeju2023/pp/Project_2
+echo SOURCE= $SOURCE 
+echo script sub24
+echo "Hostname " `hostname` >>$SOURCE/machine.txt
+cd $SOURCE
+module add intelmpi-5.0.1
+
+export OMP_NUM_THREADS=12
+./out/a1.out < input.txt > output1.txt 
+./out/a2.out < input.txt > output2.txt
+./out/a3.out < input.txt > output3.txt
+./out/a4.out < input.txt > output4.txt
+./out/a5.out < input.txt > output5.txt
+./out/a6.out < input.txt > output6.txt
+./out/a7.out < input.txt > output7.txt
+./out/a8.out < input.txt > output8.txt
+./out/a9.out < input.txt > output9.txt
+./out/a10.out < input.txt > output10.txt
+./out/a11.out < input.txt > output11.txt
+./out/a12.out < input.txt > output12.txt
+./out/a13.out < input.txt > output13.txt
